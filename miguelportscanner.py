@@ -33,8 +33,8 @@ status=subprocess.getstatusoutput("ping -n 1" + host)
 result=str(status)
 
 if (result.startswith("(0")
-    pprint("host is responding. proceeding with port scan")
-    pprint("scan beginning at: ", dt_string")
+    print("host is responding. proceeding with port scan")
+    print("scan beginning at: ", dt_string")
     resptup = [host, "is responding. beginning scan at", dt_string, "\n"]
     respout = ''.join(resptup)
     myfile.write(resp0ut)
@@ -42,7 +42,7 @@ if (result.startswith("(0")
 
 
 else:
-    pprint("host is not responding. aborting scan")
+    print("host is not responding. aborting scan")
     resptup = [host, "not responding. scan aborted at", dt_string,"\n"]
 
     resp0ut = ''.join(resptup)
@@ -50,29 +50,29 @@ else:
     myfile.close()
     exit()
 
-pprint('It works')
+print('It works!!!')
 
 for x in checkrange
     if checkport(host,x):
-        pprint("port", x, "is open")
+        print("port", x, "is open")
         myfile.write("port ")
         myfile.write(str(x)))
         myfile.write(" is open \n")
 
 
     else
-        pprint('port ', x, 'is closed')
+        print('port ', x, 'is closed')
         checktup = ["port", str(x), "is closed", "\n"]
         resp0ut = ''.join(checktup)
         myfile.write(resp0ut)
 
 
 end= time.time()
-pprint("task completed. port range", minrange, "-", maxrange, "scanned.")
+print("task completed. port range", minrange, "-", maxrange, "scanned.")
 now = datetime.now()
 dt_string = now.strftime("%m/%d/%y %h:%m:%s")
-pprint("scan completed at: ", dt_string)
-pprint("total scan time: ", "%.2f" % elapsed, "seconds.")
+print("scan completed at: ", dt_string)
+print("total scan time: ", "%.2f" % elapsed, "seconds.")
 fintup = ["scan completed at", str(dt_string), "\n"]
 fin0ut = ''.join(fintup)
 myfile.write(fin0ut)
